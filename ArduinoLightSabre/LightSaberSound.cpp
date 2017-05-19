@@ -8,11 +8,7 @@ ArduinoLightSaber::LightSaberSound::LightSaberSound(const unsigned int busyPin, 
 	_dataPin(dataPin),
 	_resetPin(resetPin)
 {
-	pinMode(_dataPin, OUTPUT);
-	pinMode(_resetPin, OUTPUT);
-
-	digitalWrite(_resetPin, HIGH);
-	pinMode(_busyPin, INPUT_PULLUP);
+	
 }
 
 
@@ -63,9 +59,9 @@ void ArduinoLightSaber::LightSaberSound::playSound(unsigned int soundAddress, bo
 
 		while (this->isBusy()) {
 			// Do nothing other than log message (if Serial has been set)
-			if (Serial) {
-				Serial.println("Soundboard reporting busy");
-			}
+			//if (Serial) {
+			//	Serial.println("Soundboard reporting busy");
+			//}
 		}
 
 		if (Serial) {
@@ -81,17 +77,12 @@ void ArduinoLightSaber::LightSaberSound::resetModule()
 	digitalWrite(_resetPin, LOW);
 	delay(5);
 	digitalWrite(_resetPin, HIGH);
-	delay(18);
+	delay(200);
 }
 
 bool ArduinoLightSaber::LightSaberSound::isBusy()
 {
 	int busyVal = digitalRead(_busyPin);
-
-	if (Serial) {
-		Serial.print("Busy value: ");
-		Serial.println(busyVal);
-	}
 
 	if (busyVal == BUSY_VALUE) {
 		return true;
