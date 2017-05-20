@@ -47,12 +47,12 @@ Information for timings etc available from the manual here: https://www.hobbiele
 class LightSaberSound
 {
 public:
-	LightSaberSound(const unsigned int busyPin, const unsigned int dataPin, const unsigned int resetPin);
+	LightSaberSound(unsigned int busyPin, unsigned int dataPin, unsigned int resetPin);
 	~LightSaberSound();
-	void playSound(unsigned int soundAddress);
-	void playSound(unsigned int soundAddress, bool waitForEndPlayback);
-	void resetModule();
-	bool isBusy();
+	void playSound(unsigned int soundAddress) const;
+	void playSound(unsigned int soundAddress, bool waitForEndPlayback) const;
+	void resetModule() const;
+	bool isBusy() const;
 
 private:
 	int _busyPin;

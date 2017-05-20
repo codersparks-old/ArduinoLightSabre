@@ -3,7 +3,7 @@
 
 
 
-ArduinoLightSaber::LightSaberSound::LightSaberSound(const unsigned int busyPin, const unsigned int dataPin, const unsigned int resetPin)
+ArduinoLightSaber::LightSaberSound::LightSaberSound(unsigned int busyPin, unsigned int dataPin, unsigned int resetPin) 
 	: _busyPin(busyPin),
 	_dataPin(dataPin),
 	_resetPin(resetPin)
@@ -20,11 +20,11 @@ ArduinoLightSaber::LightSaberSound::~LightSaberSound()
 {
 }
 
-void ArduinoLightSaber::LightSaberSound::playSound(unsigned int soundAddress) {
+void ArduinoLightSaber::LightSaberSound::playSound(unsigned int soundAddress) const {
 	this->playSound(soundAddress, false);
 }
 
-void ArduinoLightSaber::LightSaberSound::playSound(unsigned int soundAddress, bool waitForEndPlayback)
+void ArduinoLightSaber::LightSaberSound::playSound(unsigned int soundAddress, bool waitForEndPlayback) const
 {
 
 	// Some logging to write out to monitor
@@ -76,7 +76,7 @@ void ArduinoLightSaber::LightSaberSound::playSound(unsigned int soundAddress, bo
 	
 }
 
-void ArduinoLightSaber::LightSaberSound::resetModule()
+void ArduinoLightSaber::LightSaberSound::resetModule() const
 {
 	digitalWrite(_resetPin, LOW);
 	delay(5);
@@ -84,7 +84,7 @@ void ArduinoLightSaber::LightSaberSound::resetModule()
 	delay(18);
 }
 
-bool ArduinoLightSaber::LightSaberSound::isBusy()
+bool ArduinoLightSaber::LightSaberSound::isBusy() const
 {
 	int busyVal = digitalRead(_busyPin);
 

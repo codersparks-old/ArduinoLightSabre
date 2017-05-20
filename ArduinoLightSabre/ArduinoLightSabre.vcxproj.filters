@@ -24,9 +24,21 @@
     <ClInclude Include="LightSaberSound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LightSaber.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LightSasberStates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LightSaberSound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LightSaber.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LightSasberStates.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
